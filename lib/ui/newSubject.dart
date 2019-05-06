@@ -23,7 +23,7 @@ class NewSubjectPageState extends State<NewSubjectPage> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            moveToLastScreen();
+            Navigator.pop(context);
           },
         ),
       ),
@@ -52,7 +52,7 @@ class NewSubjectPageState extends State<NewSubjectPage> {
                       _firestore.collection('todo').add(
                         {'title': data.text, 'done': 0}
                       ).then((r){
-                        moveToLastScreen();
+                        Navigator.pop(context);
                       });
                     }
                   },
@@ -62,9 +62,5 @@ class NewSubjectPageState extends State<NewSubjectPage> {
             )),
       ),
     );
-  }
-
-  void moveToLastScreen() {
-    Navigator.pop(context);
   }
 }
